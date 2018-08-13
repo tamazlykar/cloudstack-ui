@@ -10,5 +10,8 @@ cache: yarn
 addons:
   chrome: stable
 
+before_script:
+  - echo $PROXY_CONF | base64 -d > ./proxy-conf.js
+
 script:
   - xvfb-run -a yarn e2e
