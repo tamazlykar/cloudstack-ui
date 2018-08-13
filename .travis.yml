@@ -11,4 +11,4 @@ addons:
   chrome: stable
 
 script:
-  - yarn e2e
+  - xvfb-run yarn e2e
