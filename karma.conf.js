@@ -44,14 +44,21 @@ module.exports = function (config) {
     retryLimit: 5,                        // default 2
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadlessNoSandbox'],
+    browsers: ['Chrome'],
+    // browsers: ['ChromeHeadlessNoSandbox'],
+    // customLaunchers: {
+    //   ChromeHeadlessNoSandbox: {
+    //     base: 'ChromeHeadless',
+    //     flags: [
+    //       '--no-sandbox',
+    //       '--remote-debugging-port=9876'
+    //     ]
+    //   }
+    // },
     customLaunchers: {
-      ChromeHeadlessNoSandbox: {
+      ChromeHeadlessCI: {
         base: 'ChromeHeadless',
-        flags: [
-          '--no-sandbox',
-          '--remote-debugging-port=9876'
-        ]
+        flags: ['--no-sandbox', '--disable-gpu']
       }
     },
     singleRun: false
