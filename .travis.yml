@@ -5,13 +5,18 @@ language: node_js
 node_js:
   - '8'
 
-cache: yarn
-
 addons:
   chrome: stable
+
+cache:
+  yarn: true
+  directories:
+  - node_modules
 
 before_script:
   - echo $PROXY_CONF | base64 -d > ./proxy-conf.js
 
 script:
-  - xvfb-run -a yarn e2e
+  - npm run webdriver-update-ci
+  - xvfb-run yarn test:ci
+  - xvfb-run -a yarn e2e:ci
