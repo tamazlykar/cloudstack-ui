@@ -13,10 +13,15 @@ cache:
   directories:
   - node_modules
 
+install:
+  - yarn install
+
 before_script:
-  - echo $PROXY_CONF | base64 -d > ./proxy-conf.js
+  - script/ci/add-proxy-conf.sh
+  - script/ci/install-simulator.sh
 
 script:
-  - npm run webdriver-update-ci
+  - yarn webdriver-update-ci
+  - yarn lint
   - xvfb-run yarn test:ci
-  - xvfb-run -a yarn e2e:ci
+  - xvfb-run yarn e2e:ci

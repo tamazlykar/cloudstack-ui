@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -u -o pipefail
+
+docker run --name cloudstack-simulator -d --rm -p 4200:8080 cloudstack/simulator
+echo "Docker container cloudstack/simulator is started"
+
+echo "Wait until simulator initialized"
+for i in $(seq 1 50); do
+  TEST_PORT=$(curl --silent --connect-timeout 1 127.0.0.1:4200 | grep HTML);
+  if [ ! -z "$TEST_PORT" ]; then
+  break;
+  fi;
+  echo -en "\rChecking... ($i/50)";
+  sleep 5;
+done
+echo -e "\rSimulator initialized successfully"
+
+docker exec -ti cloudstack-simulator python /root/tools/marvin/marvin/deployDataCenter.py -i /root/setup/dev/basic.cfg

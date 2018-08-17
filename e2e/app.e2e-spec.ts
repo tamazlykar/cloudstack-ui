@@ -1,14 +1,14 @@
 import { CloudstackUiPage } from './app.po';
 
-describe('cloudstack-ui App', () => {
+describe('CloudStack-UI App', () => {
   let page: CloudstackUiPage;
 
   beforeEach(() => {
     page = new CloudstackUiPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display logo', () => {
     page.navigateTo();
-    expect(true).toEqual(true);
+    expect(page.getLogo().isPresent()).toBeTruthy();
   });
 });
