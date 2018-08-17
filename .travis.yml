@@ -18,10 +18,7 @@ install:
 
 before_script:
   - scripts/ci/add-proxy-conf.sh
-  - scripts/ci/install-simulator.sh
 
 script:
   - yarn webdriver-update-ci
-  - yarn lint
-  - xvfb-run yarn test:ci
   - xvfb-run yarn e2e:ci

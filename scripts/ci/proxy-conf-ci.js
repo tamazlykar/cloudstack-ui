@@ -1,4 +1,4 @@
-const CLOUDSTACK_ENDPOINT = 'http://127.0.0.1:4222';
+const CLOUDSTACK_ENDPOINT = 'http://127.0.0.1:4222/';
 
 const PROXY_CONFIG = [
   {
