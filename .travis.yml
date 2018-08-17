@@ -17,8 +17,8 @@ install:
   - yarn install
 
 before_script:
-  - script/ci/add-proxy-conf.sh
-  - script/ci/install-simulator.sh
+  - scripts/ci/add-proxy-conf.sh
+  - scripts/ci/install-simulator.sh
 
 script:
   - yarn webdriver-update-ci
