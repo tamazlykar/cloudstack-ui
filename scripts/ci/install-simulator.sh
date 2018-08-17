@@ -16,4 +16,6 @@ for i in $(seq 1 50); do
 done
 echo -e "\rSimulator initialized successfully"
 
-docker exec -ti cloudstack-simulator python /root/tools/marvin/marvin/deployDataCenter.py -i /root/setup/dev/basic.cfg
+echo "Deploy Data Center started"
+docker exec cloudstack-simulator python /root/tools/marvin/marvin/deployDataCenter.py -i /root/setup/dev/basic.cfg
+echo "Data Center deployed"
