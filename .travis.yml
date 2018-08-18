@@ -18,6 +18,7 @@ install:
 
 before_script:
   - scripts/ci/add-proxy-conf.sh
+  - scripts/ci/install-simulator.sh
 
 script:
-  - xvfb-run -a yarn e2e
+  - xvfb-run yarn e2e:ci
