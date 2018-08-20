@@ -5,23 +5,12 @@ language: node_js
 node_js:
   - '8'
 
-addons:
-  chrome: stable
-
 cache:
   yarn: true
   directories:
   - node_modules
 
-before_install:
-  - google-chrome-stable --headless --no-sandbox
-
-install:
-  - yarn install
-
-before_script:
-  - ./scripts/ci/add-proxy-conf.sh
-  - ./scripts/ci/install-simulator.sh
+install: true
 
 script:
-  - xvfb-run yarn e2e:ci
+  - docker build -t cloudstack-ui .
