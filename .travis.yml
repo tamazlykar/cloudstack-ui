@@ -13,6 +13,9 @@ cache:
   directories:
   - node_modules
 
+before_install:
+  - google-chrome-stable --headless --no-sandbox
+
 install:
   - yarn install
 
