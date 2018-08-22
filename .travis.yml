@@ -24,5 +24,4 @@ before_script:
   - ./scripts/ci/install-simulator.sh
 
 script:
-  - yarn test:ci
   - yarn e2e:ci
