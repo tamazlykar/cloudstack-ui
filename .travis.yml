@@ -38,8 +38,8 @@ before_script:
 
 script:
   - yarn lint
-  - xvfb-run yarn test:ci
-  - xvfb-run yarn e2e:ci
+  - xvfb-run -a yarn test --watch=false --progress=false --browsers=ChromeHeadlessCI --code-coverage
+  - xvfb-run -a yarn e2e
 
 after_success:
   - yarn coveralls

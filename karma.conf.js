@@ -11,8 +11,7 @@ module.exports = function (config) {
       require('karma-mocha-reporter'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma'),
-      require('karma-coverage')
+      require('@angular/cli/plugins/karma')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
@@ -21,29 +20,15 @@ module.exports = function (config) {
       reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
-    coverageReporter: {
-      type: 'lcov', // lcov or lcovonly are required for generating lcov.info files
-      dir: 'coverage/'
-    },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['coverage', 'coveralls'],
+    reporters: ['mocha', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    // browsers: ['ChromeHeadlessNoSandbox'],
-    // customLaunchers: {
-    //   ChromeHeadlessNoSandbox: {
-    //     base: 'ChromeHeadless',
-    //     flags: [
-    //       '--no-sandbox',
-    //       '--remote-debugging-port=9876'
-    //     ]
-    //   }
-    // },
+    browsers: ['ChromeHeadless'],
     customLaunchers: {
       ChromeHeadlessCI: {
         base: 'ChromeHeadless',
