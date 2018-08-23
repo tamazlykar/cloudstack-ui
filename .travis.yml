@@ -15,6 +15,9 @@ services:
 
 addons:
   chrome: stable
+  apt:
+    packages:
+      - docker-ce
 
 cache:
   yarn: true
