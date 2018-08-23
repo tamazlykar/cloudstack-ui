@@ -26,6 +26,9 @@ module.exports = function (config) {
     reporters: ['mocha', 'kjhtml'],
     port: 9876,
     colors: true,
+    browserNoActivityTimeout: 100000,     // default 10,000ms
+    browserDisconnectTolerance: 5,        // default 0
+    retryLimit: 5,                        // default 2
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeHeadless'],
