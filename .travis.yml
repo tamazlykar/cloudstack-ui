@@ -5,6 +5,14 @@ language: node_js
 node_js:
   - '8'
 
+branches:
+  only:
+  - master
+  - /^\d+\.\d+\.\d+$/
+
+services:
+  - docker
+
 addons:
   chrome: stable
 
@@ -24,5 +32,19 @@ before_script:
   - ./scripts/ci/install-simulator.sh
 
 script:
+  - yarn lint
   - xvfb-run yarn test:ci
   - xvfb-run yarn e2e:ci
+
+after_success:
+  - yarn coveralls
+  - ./scripts/ci/deploy-pr-on-jenkins.sh
+
+before_deploy:
+  - docker build -t ${DOCKER_USER}/${DOCKER_REPO} .
+
+deploy:
+  - provider: script
+    script: ./scripts/ci/publish-docker-image.sh
+    on:
+      all_branches: true
