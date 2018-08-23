@@ -64,5 +64,6 @@
       "port": 8080,
       "proxyConfig": "proxy-conf.js"
     }
-  }
+  },
+  "packageManager": "yarn"
 }

@@ -8,50 +8,46 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-junit-reporter'),
       require('karma-mocha-reporter'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular/cli/plugins/karma')
+      require('@angular/cli/plugins/karma'),
+      require('karma-coverage')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: 'reports/coverage',
-      'report-config': {
-        cobertura: {
-          file: 'cobertura/cobertura.xml'
-        }
-      },
-      reports: ['html', 'lcovonly', 'cobertura'],
+      reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
+    },
+    coverageReporter: {
+      type: 'lcov', // lcov or lcovonly are required for generating lcov.info files
+      dir: 'coverage/'
     },
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['mocha', 'junit', 'kjhtml', 'coverage-istanbul'],
+    reporters: ['coverage', 'coveralls'],
     port: 9876,
-    junitReporter: {
-      outputDir: 'reports', // results will be saved as $outputDir/$browserName.xml
-      outputFile: 'junit.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
-      suite: '', // suite will become the package name attribute in xml testsuite element
-      useBrowserName: false // add browser name to report and classes names
-    },
     colors: true,
-    browserNoActivityTimeout: 100000,     // default 10,000ms
-    browserDisconnectTolerance: 5,        // default 0
-    retryLimit: 5,                        // default 2
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadlessNoSandbox'],
+    browsers: ['Chrome'],
+    // browsers: ['ChromeHeadlessNoSandbox'],
+    // customLaunchers: {
+    //   ChromeHeadlessNoSandbox: {
+    //     base: 'ChromeHeadless',
+    //     flags: [
+    //       '--no-sandbox',
+    //       '--remote-debugging-port=9876'
+    //     ]
+    //   }
+    // },
     customLaunchers: {
-      ChromeHeadlessNoSandbox: {
+      ChromeHeadlessCI: {
         base: 'ChromeHeadless',
-        flags: [
-          '--no-sandbox',
-          '--remote-debugging-port=9876'
-        ]
+        flags: ['--no-sandbox', '--disable-gpu']
       }
     },
     singleRun: false
