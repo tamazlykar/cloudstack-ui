@@ -29,9 +29,6 @@ env:
     - DOCKER_USER=bwsw
     - DOCKER_REPO=cloudstack-ui
 
-before_install:
-  - google-chrome-stable --headless --no-sandbox
-
 install:
   - yarn install
 
@@ -40,9 +37,9 @@ before_script:
   - ./scripts/ci/install-simulator.sh
 
 script:
-  - xvfb-run -a yarn e2e
   - yarn lint
-  - xvfb-run -a yarn test --watch=false --progress=false --browsers=ChromeHeadlessCI --code-coverage
+  - yarn test --watch=false --progress=false --browsers=ChromeHeadlessCI --code-coverage
+  - yarn e2e
 
 after_success:
   - yarn coveralls
