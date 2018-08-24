@@ -7,8 +7,7 @@ export class CloudstackUiPage {
   getLogin() {
     return element(by.css('.mat-button.mat-primary'));
   }
-
-  getLogo() {
-    return element(by.css('.logo'));
+  setUser() {
+    return element(by.name('username')).sendKeys('123');
   }
 }

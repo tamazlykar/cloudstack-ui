@@ -11,6 +11,6 @@ describe('CloudStack-UI App', () => {
   it('should be login button', () => {
     page.navigateTo();
     browser.waitForAngular();
-    expect(page.getLogin().isPresent()).toBeTruthy();
+    page.setUser();
   });
 });
