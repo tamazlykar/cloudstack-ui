@@ -8,9 +8,9 @@ describe('CloudStack-UI App', () => {
     page = new CloudstackUiPage();
   });
 
-  it('should display logo', () => {
+  it('should be login button', () => {
     page.navigateTo();
-    browser.sleep(5000);
-    expect(page.getLogo().isPresent()).toBeTruthy();
+    browser.waitForAngular();
+    expect(page.getLogin().isPresent()).toBeTruthy();
   });
 });
