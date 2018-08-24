@@ -40,9 +40,12 @@ before_script:
   - ./scripts/ci/install-simulator.sh
 
 script:
+  - yarn lint
   - xvfb-run -a yarn e2e
+  - xvfb-run -a yarn test --watch=false --progress=false --browsers=ChromeHeadlessCI --code-coverage
 
 after_success:
+  - yarn coveralls
   - ./scripts/ci/deploy-pr-on-jenkins.sh
 
 before_deploy:
