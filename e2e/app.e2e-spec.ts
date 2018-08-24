@@ -1,5 +1,5 @@
 import { CloudstackUiPage } from './app.po';
-import { browser } from 'protractor';
+import { browser, protractor } from 'protractor';
 
 describe('CloudStack-UI App', () => {
   let page: CloudstackUiPage;
@@ -10,7 +10,7 @@ describe('CloudStack-UI App', () => {
 
   it('should be login button', () => {
     page.navigateTo();
-    browser.waitForAngular();
-    page.setUser();
+    const ec = protractor.ExpectedConditions.presenceOf(page.getLogin());
+    browser.wait(ec, 8000);
   });
 });
