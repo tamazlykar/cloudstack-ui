@@ -33,14 +33,12 @@ install:
   - yarn install
 
 before_script:
-  - ./scripts/ci/install-simulator.sh
   - ./scripts/ci/add-proxy-conf.sh
-  - curl -v -X POST "http://127.0.0.1:4222/client/api?command=login&username=admin&password=password&domain=%2F&response=json"
-  - curl -v -X POST "https://cs2-1.netpoint-dc.com/client/api?command=login&username=admin&password=password&domain=%2F&response=json"
+  - ./scripts/ci/install-simulator.sh
 
 script:
+  - docker inspect cloudstack-simulator
   - curl -v -X POST "http://127.0.0.1:4222/client/api?command=login&username=admin&password=password&domain=%2F&response=json"
-  - curl -v -X POST "https://cs2-1.netpoint-dc.com/client/api?command=login&username=admin&password=password&domain=%2F&response=json"
   - yarn e2e
 
 after_success:
