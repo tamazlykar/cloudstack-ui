@@ -10,9 +10,9 @@ describe('CloudStack-UI App', () => {
 
   it('should be login button', () => {
     page.navigateTo();
-    console.log(browser.getCurrentUrl());
+    browser.getCurrentUrl().then(a => console.log(a));
     const ec = protractor.ExpectedConditions.presenceOf(page.getLogin());
     browser.wait(ec, 8000);
-    console.log(browser.getCurrentUrl());
+    browser.getCurrentUrl().then(a => console.log(a));
   });
 });
