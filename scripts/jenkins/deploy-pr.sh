@@ -8,11 +8,13 @@ docker system prune -f
 
 echo $CONFIG > ./src/config/config.json
 
+echo -e "\nBuilding docker image\n"
 docker build -t cloudstack-ui-pr .
 
 docker stop "cloudstack-ui-$PULL_REQUEST_NUMBER" 2> /dev/null || true
 docker rm "cloudstack-ui-$PULL_REQUEST_NUMBER" 2> /dev/null || true
 
+echo -e "\nRunning docker container\n"
 docker run  --restart=always \
   --label pr_id=$PULL_REQUEST_NUMBER \
   -e "BASE_HREF=/$PULL_REQUEST_NUMBER/" \
