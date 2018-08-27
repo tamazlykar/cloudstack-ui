@@ -8,13 +8,11 @@ echo "Docker container is started"
 echo "Wait until simulator initialized"
 for i in $(seq 1 200); do
   PORT_STATUS=$(curl -LI 127.0.0.1:8888 -o /dev/null -w '%{http_code}\n' -s);
-  echo $PORT_STATUS;
+  echo -e "\n$PORT_STATUS";
+  docker logs --tail=20
   if [ "$PORT_STATUS" = "403" ]; then
     echo -e "\nSimulator initialization is done";
     break;
-  fi;
-  if [ "$i" = "30" ]; then
-    docker ps -a
   fi;
   echo -en "\rChecking... ($i/200)";
   sleep 5;

@@ -33,7 +33,6 @@ install:
   - yarn install
 
 before_script:
-  - curl "127.0.0.1:80"
   - ./scripts/ci/add-proxy-conf.sh
   - ./scripts/ci/install-simulator.sh
 
@@ -42,9 +41,6 @@ script:
 
 after_success:
   - yarn coveralls
-  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-    curl $JENKINS_DEPLOY_URL
-    fi
 
 before_deploy:
   - docker build -t ${DOCKER_USER}/${DOCKER_REPO} .
