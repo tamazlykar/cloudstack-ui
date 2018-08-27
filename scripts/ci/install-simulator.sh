@@ -9,6 +9,7 @@ echo "Wait until simulator initialized"
 for i in $(seq 1 100); do
   PORT_STATUS=$(curl -LI 127.0.0.1:8888 -o /dev/null -w '%{http_code}\n' -s);
   if [ "$PORT_STATUS" = "403" ]; then
+    echo $PORT_STATUS
     echo -e "\nSimulator initialization is done"
     break;
   fi;
