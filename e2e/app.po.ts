@@ -4,8 +4,10 @@ export class CloudstackUiPage {
   navigateTo() {
     return browser.get('/');
   }
-
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getLogin() {
+    return element(by.css('.mat-button.mat-primary'));
+  }
+  setUser() {
+    return element(by.name('username')).sendKeys('123');
   }
 }

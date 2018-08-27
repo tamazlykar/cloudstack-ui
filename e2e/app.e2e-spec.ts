@@ -1,14 +1,18 @@
 import { CloudstackUiPage } from './app.po';
+import { browser, protractor } from 'protractor';
 
-describe('cloudstack-ui App', () => {
+describe('CloudStack-UI App', () => {
   let page: CloudstackUiPage;
 
   beforeEach(() => {
     page = new CloudstackUiPage();
   });
 
-  it('should display welcome message', () => {
+  it('should be login button', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    browser.getCurrentUrl().then(a => console.log(a));
+    const ec = protractor.ExpectedConditions.presenceOf(page.getLogin());
+    browser.wait(ec, 8000);
+    browser.getCurrentUrl().then(a => console.log(a));
   });
 });
