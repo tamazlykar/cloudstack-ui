@@ -33,6 +33,7 @@ install:
   - yarn install
 
 before_script:
+  - curl "127.0.0.1:80"
   - ./scripts/ci/add-proxy-conf.sh
   - ./scripts/ci/install-simulator.sh
 
