@@ -2,6 +2,7 @@
 ## [1.411.24](https://github.com/bwsw/cloudstack-ui/compare/1.411.23...1.411.24) (2018-11-09)
 
 
+
 ### Bug Fixes
 
 * **config:** remove outdated config properties ([#1365](https://github.com/bwsw/cloudstack-ui/issues/1365)) ([0a3d6e3](https://github.com/bwsw/cloudstack-ui/commit/0a3d6e3))
