@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BaseTemplateSidebarComponent } from './base-template-sidebar.component';
 import { Iso } from '../shared/iso.model';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'cs-iso-sidebar',

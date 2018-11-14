@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AccountType } from '../../models/account.model';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Injectable()
 export class AccountUserActionsService {

@@ -12,7 +12,7 @@ import { SessionStorageService } from '../../shared/services/session-storage.ser
 import * as fromEvents from '../redux/events.reducers';
 import * as fromAccounts from '../../reducers/accounts/redux/accounts.reducers';
 import { WithUnsubscribe } from '../../utils/mixins/with-unsubscribe';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import moment = require('moment');
 
 const FILTER_KEY = 'eventListFilters';

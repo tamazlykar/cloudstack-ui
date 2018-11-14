@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BaseTemplateSidebarComponent } from './base-template-sidebar.component';
 import { Template } from '../shared/template.model';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'cs-template-sidebar',

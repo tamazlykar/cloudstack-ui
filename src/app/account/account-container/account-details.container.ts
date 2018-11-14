@@ -10,7 +10,7 @@ import * as resourceCountAction from '../../reducers/resource-count/redux/resour
 import * as fromResourceCounts from '../../reducers/resource-count/redux/resource-counts.reducers';
 import * as resourceLimitAction from '../../reducers/resource-limit/redux/resource-limits.actions';
 import * as fromResourceLimits from '../../reducers/resource-limit/redux/resource-limits.reducers';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { WithUnsubscribe } from '../../utils/mixins/with-unsubscribe';
 import { Account, ResourceLimit } from '../../shared/models';
 

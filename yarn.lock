@@ -5460,6 +5460,11 @@ ngrx-store-freeze@^0.2.0:
   dependencies:
     deep-freeze-strict "^1.1.1"
 
+ngrx-store-localstorage@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-5.1.0.tgz#02e2e2c061c5ebacbe10c848ba8d4853aaa911ed"
+  integrity sha512-TNVfIbJVxCkSjOrCsSwYsTcWbkDVxWWT/bV278Vhha2ksAA8/D8oQmJDcAt0xekaq8a1IBzgS2w65WfkAkP1mQ==
+
 ngx-clipboard@^11.1.7:
   version "11.1.7"
   resolved "https://registry.yarnpkg.com/ngx-clipboard/-/ngx-clipboard-11.1.7.tgz#a880f82ab2dd17476d8fa9a48f7f524f37fdbef8"

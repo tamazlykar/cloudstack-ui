@@ -13,7 +13,7 @@ import { JobsNotificationService } from '../../../shared/services/jobs-notificat
 import * as volumeActions from './volumes.actions';
 import * as fromVolumes from './volumes.reducers';
 import * as snapshotActions from '../../snapshots/redux/snapshot.actions';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { LocalStorageService } from '../../../shared/services/local-storage.service';
 import { VolumeService } from '../../../shared/services/volume.service';
 import { SnapshotService } from '../../../shared/services/snapshot.service';

@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { first, switchMap } from 'rxjs/operators';
 
 import { AsyncJobService } from './shared/services/async-job.service';
-import { AuthService } from './shared/services/auth.service';
+import { authSelectors } from './auth';
 import { CacheService } from './shared/services/cache.service';
 import { MemoryStorageService } from './shared/services/memory-storage.service';
 import { SessionStorageService } from './shared/services/session-storage.service';
@@ -19,7 +19,6 @@ import { State, UserTagsSelectors } from './root-store';
 })
 export class AppComponent implements OnInit {
   constructor(
-    private auth: AuthService,
     private dateTimeFormatterService: DateTimeFormatterService,
     private translateService: TranslateService,
     private asyncJobService: AsyncJobService,
@@ -30,16 +29,17 @@ export class AppComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.auth.loggedIn.subscribe(() => {
+    this.store.pipe(select(authSelectors.getIsLoggedIn)).subscribe(() => {
       this.asyncJobService.completeAllJobs();
       CacheService.invalidateAll();
-      this.storageReset();
+      this.storageReset(); // todo
     });
 
     this.configureInterface();
   }
 
   private configureInterface() {
+    // todo try to put this to corresponding effects
     this.store
       .pipe(select(UserTagsSelectors.getInterfaceLanguage))
       .subscribe(language => this.translateService.use(language));

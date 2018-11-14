@@ -5,7 +5,7 @@ import * as accountActions from '../../reducers/accounts/redux/accounts.actions'
 
 import * as fromAccounts from '../../reducers/accounts/redux/accounts.reducers';
 import { WithUnsubscribe } from '../../utils/mixins/with-unsubscribe';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { Account, accountState } from '../../shared/models/account.model';
 
 export const stateTranslations = {

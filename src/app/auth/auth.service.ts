@@ -3,15 +3,17 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
-import { BackendResource } from '../decorators';
-import { BaseModel } from '../models';
-import { AccountType } from '../models/account.model';
-import { User } from '../models/user.model';
-import { AsyncJobService } from './async-job.service';
-import { BaseBackendService, CSCommands } from './base-backend.service';
-import { LocalStorageService } from './local-storage.service';
-import { Utils } from './utils/utils.service';
-import { JobsNotificationService } from './jobs-notification.service';
+import { BackendResource } from '../shared/decorators';
+import { BaseModel } from '../shared/models';
+import { AccountType } from '../shared/models/account.model';
+import { User } from '../shared/models/user.model';
+import { AsyncJobService } from '../shared/services/async-job.service';
+import { BaseBackendService, CSCommands } from '../shared/services/base-backend.service';
+import { LocalStorageService } from '../shared/services/local-storage.service';
+import { Utils } from '../shared/services/utils/utils.service';
+import { JobsNotificationService } from '../shared/services/jobs-notification.service';
+import { Authenticate } from './models/authenticate.model';
+import { LoginUser } from './models/login-user.model';
 
 export interface Capabilities {
   allowusercreateprojects: boolean;
@@ -36,6 +38,7 @@ export interface Capabilities {
   entity: '',
 })
 export class AuthService extends BaseBackendService<BaseModel> {
+  // todo change imports and module
   public loggedIn: BehaviorSubject<boolean>;
   // tslint:disable-next-line:variable-name
   private _user: User | null;
@@ -50,18 +53,18 @@ export class AuthService extends BaseBackendService<BaseModel> {
     super(http);
   }
 
-  public initUser(): Promise<any> {
-    try {
-      const userRaw = this.storage.read('user');
-      const user: User = Utils.parseJsonString(userRaw);
-      this._user = user;
-    } catch (e) {}
-
-    this.loggedIn = new BehaviorSubject<boolean>(!!(this._user && this._user.userid));
-    this.jobsNotificationService.reset();
-
-    return this._user && this._user.userid ? this.getCapabilities().toPromise() : Promise.resolve();
-  }
+  // public initUser(): Promise<any> {
+  //   try {
+  //     const userRaw = this.storage.read('user');
+  //     const user: User = Utils.parseJsonString(userRaw);
+  //     this._user = user;
+  //   } catch (e) {}
+  //
+  //   this.loggedIn = new BehaviorSubject<boolean>(!!(this._user && this._user.userid));
+  //   this.jobsNotificationService.reset();
+  //
+  //   return this._user && this._user.userid ? this.getCapabilities().toPromise() : Promise.resolve();
+  // }
 
   public get user(): User | null {
     return this._user;
@@ -77,15 +80,17 @@ export class AuthService extends BaseBackendService<BaseModel> {
     );
   }
 
+  public login2({ username, password, domain }: Authenticate): Observable<LoginUser> {
+    return this.postRequest('login', { username, password, domain }).pipe(
+      map(res => this.getResponse(res)),
+    );
+  }
+
   public logout(): Observable<void> {
     return this.postRequest('logout').pipe(
       tap(() => this.setLoggedOut()),
       catchError(error => throwError('Unable to log out.')),
     );
-  }
-
-  public isLoggedIn(): Observable<boolean> {
-    return of(!!(this._user && this._user.userid));
   }
 
   public isAdmin(): boolean {
@@ -119,8 +124,8 @@ export class AuthService extends BaseBackendService<BaseModel> {
 
   private setLoggedOut(): void {
     this._user = null;
-    this.storage.remove('user');
-    this.loggedIn.next(false);
+    // this.storage.remove('user');
+    // this.loggedIn.next(false);
   }
 
   private getCapabilities(): Observable<void> {

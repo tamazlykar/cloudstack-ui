@@ -13,7 +13,7 @@ import { tap } from 'rxjs/operators';
 
 import { SnackBarService } from '../../core/services';
 import { RouterUtilsService } from './router-utils.service';
-import { AuthService } from './auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Injectable()
 export class BaseHttpInterceptor implements HttpInterceptor {

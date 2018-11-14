@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { Account } from '../../shared/models';
 import { stateTranslations } from '../account-container/account.container';
 import { isUserBelongsToAccount } from '../../shared/utils/account';

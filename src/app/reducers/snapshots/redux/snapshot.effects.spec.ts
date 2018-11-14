@@ -13,7 +13,7 @@ import { MockSnapshotTagService } from '../../../../testutils/mocks/tag-services
 import { DialogService } from '../../../dialog/dialog-service/dialog.service';
 import { Snapshot, SnapshotStates, SnapshotType, Volume } from '../../../shared/models';
 import { AsyncJobService } from '../../../shared/services/async-job.service';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { JobsNotificationService } from '../../../shared/services/jobs-notification.service';
 import { SnackBarService } from '../../../core/services';
 import { SnapshotService } from '../../../shared/services/snapshot.service';

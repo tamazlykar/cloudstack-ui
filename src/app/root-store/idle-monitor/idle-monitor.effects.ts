@@ -14,7 +14,7 @@ import {
   UpdateIdleMonitorTimeout,
 } from './idle-monitor.actions';
 import { IdleLogout } from '../../auth/store/auth.actions';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { TagService } from '../../shared/services/tags/tag.service';
 import { UserTagsSelectors } from '../server-data/user-tags';
 import { configSelectors } from '../config';

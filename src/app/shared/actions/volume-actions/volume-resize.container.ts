@@ -8,7 +8,7 @@ import * as fromDiskOfferings from '../../../reducers/disk-offerings/redux/disk-
 import * as zoneActions from '../../../reducers/zones/redux/zones.actions';
 
 import { State } from '../../../reducers/index';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { Account } from '../../models/account.model';
 import { Volume } from '../../models/volume.model';
 import { VolumeResizeData } from '../../services/volume.service';

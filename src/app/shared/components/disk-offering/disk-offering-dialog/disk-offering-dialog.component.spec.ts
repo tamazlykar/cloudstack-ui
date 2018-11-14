@@ -15,7 +15,7 @@ import { MockTranslatePipe } from '../../../../../testutils/mocks/mock-translate
 import { StringifyDatePipe } from '../../../pipes';
 import { DateTimeFormatterService } from '../../../services/date-time-formatter.service';
 import { User } from '../../../models/user.model';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../../auth/auth.service';
 
 class MockConfigServiceDateTimeFormatterService {
   public stringifyToTime() {

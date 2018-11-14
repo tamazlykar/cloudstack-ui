@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
 import { MatMenuTrigger } from '@angular/material';
 import { Account } from '../../../shared/models/account.model';
 import { AccountItemComponent } from '../account-item.component';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'cs-account-row-item',

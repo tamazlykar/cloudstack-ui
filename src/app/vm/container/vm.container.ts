@@ -9,7 +9,7 @@ import * as volumeActions from '../../reducers/volumes/redux/volumes.actions';
 import * as osTypesActions from '../../reducers/templates/redux/ostype.actions';
 import * as securityGroupActions from '../../reducers/security-groups/redux/sg.actions';
 import * as snapshotActions from '../../reducers/snapshots/redux/snapshot.actions';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { getInstanceGroupName, VirtualMachine } from '../shared/vm.model';
 
 import { noGroup } from '../vm-filter/vm-filter.component';

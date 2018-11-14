@@ -7,7 +7,7 @@ import { configSelectors, State, UserTagsActions } from '../../../root-store';
 import { SettingsViewModel } from '../../view-models';
 import { getSettingsViewModel } from '../../selectors';
 import { UserService } from '../../../shared/services/user.service';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { RouterUtilsService } from '../../../shared/services/router-utils.service';
 import { ApiKeys } from '../../../shared/models/account-user.model';
 import { BACKEND_API_URL } from '../../../shared/services/base-backend.service';

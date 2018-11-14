@@ -93,7 +93,7 @@ import { AccountService } from './services/account.service';
 import { AffinityGroupService } from './services/affinity-group.service';
 import { AsyncJobService } from './services/async-job.service';
 import { AuthGuard } from './services/auth-guard.service';
-import { AuthService } from './services/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { CacheService } from './services/cache.service';
 import { ConfigurationService } from './services/configuration.service';
 import { DateTimeFormatterService } from './services/date-time-formatter.service';

@@ -1,10 +1,10 @@
 import { async, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
-import { LocalStorageService } from './local-storage.service';
+import { LocalStorageService } from '../shared/services/local-storage.service';
 import { of } from 'rxjs';
-import { AsyncJobService } from './async-job.service';
+import { AsyncJobService } from '../shared/services/async-job.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
-import { JobsNotificationService } from './jobs-notification.service';
+import { JobsNotificationService } from '../shared/services/jobs-notification.service';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';

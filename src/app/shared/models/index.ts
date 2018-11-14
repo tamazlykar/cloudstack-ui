@@ -23,3 +23,4 @@ export * from './configuration.model';
 export * from './action.model';
 export * from './grouping.model';
 export * from './user.model';
+export * from './account-user.model';

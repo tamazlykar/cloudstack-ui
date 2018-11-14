@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { BaseTemplateModel, resourceType } from '../../../template/shared';
 import { TemplateFilterListComponent } from '../../../template/template-filter-list/template-filter-list.component';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { OsFamily } from '../../../shared/models';
 import { ImageGroup } from '../../../shared/models/';
 

@@ -19,7 +19,7 @@ import * as sgActions from '../../security-groups/redux/sg.actions';
 import * as fromVMs from './vm.reducers';
 import { VirtualMachine, VmState } from '../../../vm/shared/vm.model';
 import { OsTypeService } from '../../../shared/services/os-type.service';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { VmTagService } from '../../../shared/services/tags/vm-tag.service';
 import { AffinityGroupService } from '../../../shared/services/affinity-group.service';
 import { SSHKeyPairService } from '../../../shared/services/ssh-keypair.service';

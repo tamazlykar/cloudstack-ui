@@ -20,7 +20,7 @@ import { VmPulseComponent } from '../../../pulse/vm-pulse/vm-pulse.component';
 // tslint:disable-next-line
 import { ProgressLoggerMessageStatus } from '../../../shared/components/progress-logger/progress-logger-message/progress-logger-message';
 import { AffinityGroupService } from '../../../shared/services/affinity-group.service';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { CSCommands } from '../../../shared/services/base-backend.service';
 import { JobsNotificationService } from '../../../shared/services/jobs-notification.service';
 import { SSHKeyPairService } from '../../../shared/services/ssh-keypair.service';

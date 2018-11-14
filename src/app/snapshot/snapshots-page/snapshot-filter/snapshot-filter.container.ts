@@ -6,7 +6,7 @@ import * as moment from 'moment';
 
 import { State } from '../../../reducers';
 import { Snapshot, SnapshotType } from '../../../shared/models';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { FilterService } from '../../../shared/services/filter.service';
 import { SessionStorageService } from '../../../shared/services/session-storage.service';
 import { WithUnsubscribe } from '../../../utils/mixins/with-unsubscribe';

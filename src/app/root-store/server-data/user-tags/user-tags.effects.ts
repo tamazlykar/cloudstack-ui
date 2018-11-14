@@ -57,7 +57,8 @@ import {
   UserTagsActionTypes,
 } from './user-tags.actions';
 import { TagService } from '../../../shared/services/tags/tag.service';
-import { AuthService } from '../../../shared/services/auth.service';
+import { authSelectors } from '../../../auth';
+import { AuthService } from '../../../auth/auth.service';
 import { ServiceOffering, Tag } from '../../../shared/models';
 import { userTagKeys } from '../../../tags/tag-keys';
 import { State } from '../../state';
@@ -303,16 +304,16 @@ export class UserTagsEffects {
 
   private readonly resourceType = 'User';
 
-  private get resourceId(): string | null {
-    return this.authService.user.userid;
-  }
+  private resourceId: string | null;
 
   constructor(
     private actions$: Actions,
     private tagService: TagService,
     private authService: AuthService,
     private store: Store<State>,
-  ) {}
+  ) {
+    this.store.pipe(select(authSelectors.getUserId)).subscribe(id => (this.resourceId = id));
+  }
 
   private setComputeOfferingParams(offering: ServiceOffering) {
     const cpuNumberKey = `${userTagKeys.computeOfferingParam}.${offering.id}.cpunumber`;

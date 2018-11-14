@@ -8,7 +8,7 @@ import { FilterService } from '../../../shared/services/filter.service';
 import { SessionStorageService } from '../../../shared/services/session-storage.service';
 import { WithUnsubscribe } from '../../../utils/mixins/with-unsubscribe';
 import { sshKeyGroupings } from '../ssh-key-page/ssh-key-page.container';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { Grouping } from '../../../shared/models';
 
 import * as accountAction from '../../../reducers/accounts/redux/accounts.actions';

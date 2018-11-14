@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { templateFilters, templateResourceType } from '../shared/base-template.service';
 import { Account, Domain, getPath, ImageGroup, OsFamily, OsType, Zone } from '../../shared/models';
 import { NgrxEntities } from '../../shared/interfaces';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { reorderAvailableGroupings } from '../../shared/utils/reorder-groupings';
 import { Language } from '../../shared/types';
 

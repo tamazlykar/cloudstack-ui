@@ -12,7 +12,7 @@ import { DiskOffering } from '../../../models';
 import { isRoot, Volume } from '../../../models/volume.model';
 import { VolumeResizeData } from '../../../services/volume.service';
 import { isCustomized } from '../../../models/offering.model';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../../auth/auth.service';
 
 @Component({
   selector: 'cs-volume-resize',

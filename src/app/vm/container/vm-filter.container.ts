@@ -14,7 +14,7 @@ import * as zoneActions from '../../reducers/zones/redux/zones.actions';
 import { FilterService } from '../../shared/services/filter.service';
 import { SessionStorageService } from '../../shared/services/session-storage.service';
 import { VmState } from '../shared/vm.model';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { WithUnsubscribe } from '../../utils/mixins/with-unsubscribe';
 import { Grouping } from '../../shared/models';
 

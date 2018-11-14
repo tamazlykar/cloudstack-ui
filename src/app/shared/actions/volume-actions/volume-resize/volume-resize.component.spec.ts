@@ -14,7 +14,7 @@ import { DiskOfferingService } from '../../../services/disk-offering.service';
 import { JobsNotificationService } from '../../../services/jobs-notification.service';
 import { ResourceUsageService } from '../../../services/resource-usage.service';
 import { VolumeResizeComponent } from './volume-resize.component';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../../auth/auth.service';
 
 @Injectable()
 class MockResourceUsageService {

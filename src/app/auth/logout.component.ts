@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { State } from '../root-store';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from './auth.service';
 import { RouterUtilsService } from '../shared/services/router-utils.service';
 import { LogoutComplete } from './store/auth.actions';
 

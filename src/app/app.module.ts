@@ -29,7 +29,7 @@ import { AuthModule } from './auth/auth.module';
 import { VmModule } from './vm';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
-import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './auth/auth.service';
 import { BaseHttpInterceptor } from './shared/services/base-http-interceptor';
 import { VmLogsModule } from './vm-logs/vm-logs.module';
 
@@ -61,7 +61,7 @@ export function InitAppFactory(
           )
           .subscribe(lang => translateService.setDefaultLang(lang)),
       )
-      .then(() => auth.initUser())
+      // .then(() => auth.initUser())
       .then(() =>
         store
           .pipe(

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Account, Grouping, VolumeType, volumeTypeNames, Zone } from '../../shared/models';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { reorderAvailableGroupings } from '../../shared/utils/reorder-groupings';
 
 @Component({

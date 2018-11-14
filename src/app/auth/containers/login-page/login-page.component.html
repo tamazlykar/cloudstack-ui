@@ -1,0 +1,6 @@
+<div class="logo">
+  <img src="img/cloudstack_logo.png">
+</div>
+<div class="login-form">
+  <cs-login-form [predefinedDomain]="predefinedDomain$ | async" (submitted)="onLogin($event)"></cs-login-form>
+</div>

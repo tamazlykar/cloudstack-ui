@@ -1,0 +1,54 @@
+<mat-card class="login-card">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          formControlName="username"
+          [placeholder]="'AUTH.USERNAME' | translate"
+          autofocus
+        >
+        <mat-error *ngIf="loginForm.hasError('required', ['username'])">
+          {{'AUTH.USERNAME_REQUIRED' | translate}}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          [placeholder]="'AUTH.PASSWORD' | translate"
+        >
+        <mat-error *ngIf="loginForm.hasError('required', ['password'])">
+          {{'AUTH.PASSWORD_REQUIRED' | translate}}
+        </mat-error>
+      </mat-form-field>
+      <ng-container *ngIf="showAdvancedOptions">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            formControlName="domain"
+            [placeholder]="'AUTH.DOMAIN' | translate"
+          >
+        </mat-form-field>
+      </ng-container>
+    </mat-card-content>
+    <div class="actions">
+      <button
+        type="button"
+        mat-icon-button
+        [matTooltip]="(showAdvancedOptions ? 'AUTH.HIDE_ADVANCED' : 'AUTH.SHOW_ADVANCED') | translate"
+        matTooltipPosition="above"
+        matTooltipShowDelay="300"
+        (click)="toggleAdvancedOptions()"
+      >
+        <mat-icon [class.diaphanous]="showAdvancedOptions" class="mdi-settings"></mat-icon>
+      </button>
+      <button type="submit" mat-button color="primary">
+        {{ 'AUTH.LOGIN' | translate }}
+      </button>
+    </div>
+  </form>
+</mat-card>

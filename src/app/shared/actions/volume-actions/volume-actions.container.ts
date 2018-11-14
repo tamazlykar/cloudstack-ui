@@ -5,7 +5,7 @@ import { filter, onErrorResumeNext } from 'rxjs/operators';
 import { DialogService } from '../../../dialog/dialog-service/dialog.service';
 import { State } from '../../../reducers';
 import { Volume } from '../../models';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 
 import * as volumeActions from '../../../reducers/volumes/redux/volumes.actions';
 import * as snapshotActions from '../../../reducers/snapshots/redux/snapshot.actions';

@@ -2,15 +2,57 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { mergeMap, tap, withLatestFrom } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { mergeMap, tap, withLatestFrom, map, exhaustMap, catchError } from 'rxjs/operators';
+import { LocalStorageService } from '../../shared/services/local-storage.service';
+import { AuthService } from '../auth.service';
+import { LoginUser } from '../models/login-user.model';
 
-import { AuthActionTypes, IdleLogout, LogoutComplete } from './auth.actions';
+import {
+  AuthActionTypes,
+  IdleLogout,
+  Login,
+  LoginFailure,
+  LoginSuccess,
+  Logout,
+  LogoutComplete,
+} from './auth.actions';
 import { RouterUtilsService } from '../../shared/services/router-utils.service';
-import { configSelectors, IdleMonitorActions, State, UserTagsActions } from '../../root-store/';
+import {
+  configSelectors,
+  IdleMonitorActions,
+  State,
+  UserTagsActions,
+  routerSelectors,
+} from '../../root-store';
 
 @Injectable()
 export class AuthEffects {
+  @Effect()
+  login$ = this.actions$.pipe(
+    ofType<Login>(AuthActionTypes.Login),
+    map(action => action.payload),
+    exhaustMap(credentials => {
+      return this.authService.login2(credentials).pipe(
+        map(user => new LoginSuccess({ user })),
+        catchError(error => of(new LoginFailure({ error }))),
+      );
+    }),
+  );
+
+  @Effect({ dispatch: false })
+  loginRedirect$ = this.actions$.pipe(
+    ofType<LoginSuccess>(AuthActionTypes.LoginSuccess),
+    withLatestFrom(this.store.pipe(select(routerSelectors.getQueryParams))),
+    tap(([action, queryParams]) => {
+      const url =
+        queryParams['next'] && queryParams['next'] !== '/login' && queryParams['next'] !== 'login'
+          ? queryParams['next']
+          : '';
+      this.router.navigateByUrl(url);
+    }),
+  );
+
   @Effect({ dispatch: false })
   idleLogout$: Observable<Action> = this.actions$.pipe(
     ofType<IdleLogout>(AuthActionTypes.IdleLogout),
@@ -34,5 +76,6 @@ export class AuthEffects {
     private router: Router,
     private routerUtilsService: RouterUtilsService,
     private store: Store<State>,
+    private authService: AuthService,
   ) {}
 }

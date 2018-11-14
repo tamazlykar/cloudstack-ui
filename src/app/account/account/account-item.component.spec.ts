@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AccountItemComponent } from './account-item.component';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { User } from '../../shared/models/user.model';
 import { Account } from '../../shared/models';
 

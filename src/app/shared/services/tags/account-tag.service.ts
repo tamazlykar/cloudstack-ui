@@ -6,7 +6,7 @@ import { accountResourceType } from '../../models/account.model';
 import { SSHKeyPair } from '../../models/ssh-keypair.model';
 import { User } from '../../models/user.model';
 import { AccountService } from '../account.service';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { accountTagKeys } from './account-tag-keys';
 import { EntityTagService } from './entity-tag-service.interface';
 import { TagService } from './tag.service';

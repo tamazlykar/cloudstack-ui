@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { ResourcesData, ResourceStats } from '../../services/resource-usage.service';
 import { Utils } from '../../services/utils/utils.service';

@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { first } from 'rxjs/operators';
 
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from './auth.service';
 import { SnackBarService } from '../core/services/';
 import { LocalStorageService } from '../shared/services/local-storage.service';
 import { configSelectors, State } from '../root-store';
+import { authActions } from './store';
 
 @Component({
   selector: 'cs-login',
@@ -76,9 +77,10 @@ export class LoginComponent implements OnInit {
   }
 
   private login(username: string, password: string, domain: string): void {
-    this.auth
-      .login(username, password, domain)
-      .subscribe(() => this.handleLogin(), error => this.handleError(error));
+    this.store.dispatch(new authActions.Login({ username, password, domain }));
+    // this.auth
+    //   .login(username, password, domain)
+    //   .subscribe(() => this.handleLogin(), error => this.handleError(error));
   }
 
   private handleLogin(): void {

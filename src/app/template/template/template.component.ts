@@ -1,6 +1,6 @@
 import { EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { BaseTemplateModel } from '../shared';
 
 export class TemplateComponent implements OnChanges {

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Account } from '../../../shared/models/account.model';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'cs-account-detail',

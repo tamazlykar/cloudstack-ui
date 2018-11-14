@@ -5,7 +5,7 @@ import * as volumeActions from '../../reducers/volumes/redux/volumes.actions';
 import * as snapshotActions from '../../reducers/snapshots/redux/snapshot.actions';
 import * as fromVolumes from '../../reducers/volumes/redux/volumes.reducers';
 import { Grouping, Volume, VolumeType, volumeTypeNames } from '../../shared/models';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import * as diskOfferingActions from '../../reducers/disk-offerings/redux/disk-offerings.actions';
 
 @Component({

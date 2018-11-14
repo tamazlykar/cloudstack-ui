@@ -4,7 +4,7 @@ import { ListService } from '../../shared/components/list/list.service';
 import { SSHKeyPair } from '../../shared/models/ssh-keypair.model';
 import { Account } from '../../shared/models/account.model';
 import { ViewMode } from '../../shared/components/view-mode-switch/view-mode-switch.component';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { Grouping } from '../../shared/models/grouping.model';
 
 @Component({

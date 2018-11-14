@@ -9,7 +9,7 @@ import * as fromVolumes from '../../reducers/volumes/redux/volumes.reducers';
 import * as fromAccounts from '../../reducers/accounts/redux/accounts.reducers';
 import * as fromDiskOfferings from '../../reducers/disk-offerings/redux/disk-offerings.reducers';
 import * as fromZones from '../../reducers/zones/redux/zones.reducers';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { WithUnsubscribe } from '../../utils/mixins/with-unsubscribe';
 import { VolumeCreationDialogComponent } from '../volume-creation/volume-creation-dialog.component';
 import { Zone } from '../../shared/models/zone.model';

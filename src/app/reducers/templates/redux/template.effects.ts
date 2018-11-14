@@ -11,7 +11,7 @@ import {
   templateFilters,
   templateResourceType,
 } from '../../../template/shared/base-template.service';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { SnackBarService } from '../../../core/services';
 import { configSelectors, State } from '../../../root-store';
 import { TemplateTagService } from '../../../shared/services/tags/template-tag.service';

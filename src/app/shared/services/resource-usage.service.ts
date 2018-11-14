@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { Account, ResourceLimit, ResourceType } from '../models';
 import { AccountService } from './account.service';
-import { AuthService } from './auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 export class ResourcesData {
   public instances = 0;

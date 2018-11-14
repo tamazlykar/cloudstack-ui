@@ -5,7 +5,7 @@ import { AccountTagService } from './account-tag.service';
 import { Injectable } from '@angular/core';
 import { AccountService } from '../account.service';
 import { User } from '../../models/user.model';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../../auth/auth.service';
 import { TagService } from './tag.service';
 import { Tag } from '../../models/tag.model';
 import { SSHKeyPair } from '../../models/ssh-keypair.model';

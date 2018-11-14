@@ -1,0 +1,27 @@
+mat-card-content {
+  padding-top: 16px;
+}
+
+mat-card-actions {
+  margin-left: 0;
+  margin-right: 0;
+  border: none;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.login-card {
+  width: 350px;
+}
+
+.actions {
+  padding: 8px 8px 8px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.diaphanous {
+  color: rgba(0, 0, 0, 0.26) !important;
+}

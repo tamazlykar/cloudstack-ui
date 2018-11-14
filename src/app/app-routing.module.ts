@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginPageComponent } from './auth/containers/login-page/login-page.component';
+import { HomeResolverService } from './home/home-resolver.service';
 
 import { vmRoutes } from './vm/vm.routing';
 import { AuthGuard } from './shared/services/auth-guard.service';
@@ -21,7 +23,7 @@ import { vmLogsRoutes } from './vm-logs/vm-logs.routing';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginPageComponent,
     canActivate: [LoginGuard],
   },
   {
@@ -35,6 +37,9 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    resolve: {
+      home: HomeResolverService,
+    },
     children: [
       ...vmRoutes,
       ...volumeRoutes,

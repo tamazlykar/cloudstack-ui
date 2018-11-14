@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ListService } from '../../shared/components/list/list.service';
 import { Account } from '../../shared';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ViewMode } from '../../shared/components/view-mode-switch/view-mode-switch.component';
 
