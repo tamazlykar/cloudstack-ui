@@ -4,9 +4,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action, select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { mergeMap, tap, withLatestFrom, map, exhaustMap, catchError } from 'rxjs/operators';
-import { LocalStorageService } from '../../shared/services/local-storage.service';
 import { AuthService } from '../auth.service';
-import { LoginUser } from '../models/login-user.model';
 
 import {
   AuthActionTypes,
@@ -14,7 +12,6 @@ import {
   Login,
   LoginFailure,
   LoginSuccess,
-  Logout,
   LogoutComplete,
 } from './auth.actions';
 import { RouterUtilsService } from '../../shared/services/router-utils.service';
